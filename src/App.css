@@ -73,6 +73,7 @@ span.bold {
   border: none !important;
   font-style: italic;
   font-size: 18px;
+  cursor: pointer;
 }
 
 

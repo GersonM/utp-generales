@@ -6,6 +6,9 @@ import astm_pag_1 from './assets/astm_pag_01.jpg'
 import astm_pag_2 from './assets/astm_pag_02.jpg'
 import astm_pag_1_650 from './assets/page_1_650.jpg'
 import astm_pag_2_650 from './assets/page_02_650.jpg'
+import cl_1 from './assets/cl_1.jpeg'
+import cl_2 from './assets/cl_2.jpeg'
+
 import Panel from './Panel.tsx';
 import './App.css'
 
@@ -13,6 +16,7 @@ function App() {
     const [openPdf, setOpenPdf] = useState(false);
     const [openEmpalmes, setOpenEmpalmes] = useState(false);
     const [openEmpalmes2, setOpenEmpalmes2] = useState(false);
+    const [openPreview, setOpenPreview] = useState(false);
 
     return (
         <div className={'container fade-in'}>
@@ -41,13 +45,20 @@ function App() {
                     concreto, f’c, no
                     debe ser mayor que 55 MPa.</p>
                 <p className={'item-content'}>
-                    <span>21.3.2.3</span> La resistencia especificada a la compresión del concreto liviano, f’c, no debe
-                    ser mayor
-                    que 35 MPa a menos que se demuestre, por medio de evidencia experimental, que los elementos
-                    estructurales hechos
-                    con dicho concreto liviano proporcionan resistencia y tenacidad iguales o mayores que las de
-                    {' '}<span className={'bold'} style={{color:'#cc0000'}}>elementos comparables</span> hechos por concreto de peso normal de la misma resistencia.
+                    <span>21.3.2.3</span> La resistencia especificada a la compresión del <span className={'bold'}
+                                                                                                onClick={() => setOpenPreview(true)}
+                                                                                                style={{color: '#cc0000'}}>concreto liviano</span>,
+                    f’c, no debe
+                    ser mayor que 35 MPa a menos que se demuestre, por medio de evidencia experimental, que los
+                    elementos estructurales hechos con dicho concreto liviano proporcionan resistencia y tenacidad
+                    iguales o mayores que las de elementos comparables hechos por concreto de peso normal de la misma
+                    resistencia.
                 </p>
+                <Image.PreviewGroup
+                    preview={{visible:openPreview, onVisibleChange: (value) => setOpenPreview(value)}}>
+                    <Image src={cl_2} width={60} height={90} style={{ display: 'none' }}/>
+                    <Image src={cl_1} width={60} height={90} style={{ display: 'none' }}/>
+                </Image.PreviewGroup>
             </Panel>
             <Panel number={'21.3.3'}
                    title={'Refuerzo de acero para elementos resistentes a fuerzas inducidas por sismo'}>
@@ -90,7 +101,9 @@ function App() {
                 <p><span>21.3.4.1</span>Los empalmes mecánicos deben clasificarse como Tipo 1 o Tipo 2, de acuerdo con
                     lo siguiente:</p>
                 <ol type={"a"}>
-                    <li>Los empalmes mecánicos Tipo 1 deben cumplir con <Tag style={{cursor:'pointer'}} color={'red'} onClick={() => setOpenEmpalmes(true)}>12.14.3.2</Tag>;</li>
+                    <li>Los empalmes mecánicos Tipo 1 deben cumplir con <Tag style={{cursor: 'pointer'}} color={'red'}
+                                                                             onClick={() => setOpenEmpalmes(true)}>12.14.3.2</Tag>;
+                    </li>
                     <li>
                         Los empalmes mecánicos Tipo 2 deben cumplir con 12.14.3.2 y deben desarrollar la resistencia a
                         tracción especificada de las barras empalmadas.
