@@ -1,0 +1,150 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+}
+html,
+body {
+  font-family: Inter, sans-serif;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+  background: #e3e5e8;
+}
+
+.main-title {
+  text-align: center;
+  border-bottom: 1px dashed #b5183f;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.main-title small {
+  background: #b5183f;
+  color: #fff;
+  padding: 3px 6px;
+  font-size: 17px;
+  border-radius: 5px;
+}
+
+.container {
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
+  padding: 30px;
+  border-radius: 9px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.logo {
+  width: 200px;
+}
+
+.item {
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+  padding: 3px 3px;
+  border-radius: 9px;
+  display: flex;
+}
+
+.panel-content {
+  border-bottom: 1px dashed #d6d0d2;
+  position: absolute;
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
+  padding: 20px;
+  border-radius: 15px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+}
+
+span.pre {
+  border: none !important;
+  font-family: monospace;
+  font-style: italic;
+}
+
+span.bold {
+  border: none !important;
+  font-style: italic;
+  font-size: 18px;
+}
+
+
+.item:hover {
+  background: #e4e4e4;
+}
+
+.item > span {
+  background: #b5183f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding: 1px 5px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+p, li {
+  font-size: 18px;
+}
+p > span {
+  border: 1px solid #b5183f;
+  color: #b5183f;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 12px;
+  margin-right: 5px;
+}
+
+
+.fade-in {
+  animation-duration: 1.7s;
+  animation-timing-function: cubic-bezier(0.01, 1.15, 0.8, 0.99);
+  animation-fill-mode: both;
+  animation-name: contentFadeIn;
+}
+
+.fade-in-quick {
+  animation-duration: .6s;
+  animation-timing-function: cubic-bezier(0.01, 1.15, 0.8, 0.99);
+  animation-fill-mode: both;
+  animation-name: contentFadeInQuick;
+}
+
+pre {
+  display: inline-block;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@keyframes contentFadeInQuick {
+  from {
+    opacity: 0;
+    transform:translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.2) translateY(-250px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
