@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal} from "antd";
+import {Button, Modal} from "antd";
 
 interface PanelProps {
     number: React.ReactNode;
@@ -14,7 +14,13 @@ const Panel = ({number, title, children}: PanelProps) => {
             <div className={'panel-container'}>
                 <h4 className={'item'} onClick={() => setOpen(!open)}><span>{number}</span> {title}</h4>
             </div>
-            <Modal width={800} open={open} onCancel={() => setOpen(false)} footer={null}>
+            {open && <div className={'panel-content fade-in-quick'}>
+                <h3><span>{number}</span> {title}</h3>
+                <Button type={"primary"} ghost icon={'<'} onClick={()=>setOpen(!open)}>Volver</Button>
+                {children}
+            </div>}
+
+            <Modal width={800} open={false} onCancel={() => setOpen(false)} footer={null}>
                 <h3><span>{number}</span> {title}</h3>
                 {children}
             </Modal>

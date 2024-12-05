@@ -1,6 +1,6 @@
 #root {
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
 }
 html,
 body {
@@ -35,6 +35,8 @@ body {
   border-radius: 9px;
   max-width: 800px;
   margin: 20px auto;
+  max-height: calc(100vh - 130px);
+  overflow: auto;
 }
 
 .logo {
@@ -51,7 +53,7 @@ body {
 
 .panel-content {
   border-bottom: 1px dashed #d6d0d2;
-  position: absolute;
+  position: fixed;
   background: #ffffff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
   padding: 20px;
